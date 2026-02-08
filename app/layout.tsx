@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Globe, Instagram, Linkedin, Twitter } from "lucide-react";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,10 +26,81 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" />
+      <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      >        
+        <header className="relative w-full bg-black min-h-[80px]">
+          {/* Navbar */}
+          <nav className="absolute max-w-7xl mx-auto bg-black top-0 left-1/2 transform -translate-x-1/2 w-full z-50 px-6 py-6 flex items-center justify-between">
+            <Link href="/" className="text-2xl font-bold text-white tracking-tighter">
+              QuantIQ<span className="text-blue-500">.</span>
+            </Link>
+
+            <div className="hidden md:flex items-center space-x-8">
+              <button className="flex items-center text-white/90 hover:text-white transition-opacity group">
+                {/* Features <ChevronDown className="ml-1 w-4 h-4 group-hover:translate-y-0.5 transition-transform" /> */}
+              </button>
+              <a href="#" className="text-white/90 hover:text-white transition-opacity">Products</a>
+              <a href="#" className="text-white/90 hover:text-white transition-opacity">Services</a>
+              <a href="#" className="text-white/90 hover:text-white transition-opacity">Pricing</a>
+            </div>
+
+            <div className="flex items-center space-x-6">
+              <Link href="#" className="text-white font-medium hover:opacity-80 transition-opacity">Sign in</Link>
+            </div>
+          </nav>
+        </header>
+
         {children}
+
+        {/* FOOTER */}
+        <footer className="py-20 px-6 bg-black">
+          {/* <video autoplay="" loop="" playsinline="" class="absolute inset-0 w-full h-full object-cover" src="blob:https://lgpsm.lovable.app/eceef478-f127-47f5-ad71-78a80360bc61"></video> */}
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-12 mb-20">
+              <div className="col-span-2">
+                <div className="text-2xl font-bold tracking-tighter mb-6 text-slate-300">QuantIQ.</div>
+                <p className="text-zinc-500 text-sm max-w-xs mb-8">Building the next generation of financial intelligence for families and individuals worldwide.</p>
+                <div className="flex space-x-4">
+                  <Twitter className="w-5 h-5 text-zinc-500 cursor-pointer hover:text-white" />
+                  <Linkedin className="w-5 h-5 text-zinc-500 cursor-pointer hover:text-white" />
+                  <Instagram className="w-5 h-5 text-zinc-500 cursor-pointer hover:text-white" />
+                </div>
+              </div>
+              <div>
+                <h4 className="font-bold text-sm mb-6 uppercase tracking-widest text-slate-300">Platform</h4>
+                <div className="space-y-4 text-sm text-zinc-500 flex flex-col">
+                  <Link href="/wealth-tracking" className="hover:text-white cursor-pointer transition-colors">Wealth Tracking</Link>
+                  <Link href="/investment-ai" className="hover:text-white cursor-pointer transition-colors">Investment AI</Link>
+                  <Link href="/security" className="hover:text-white cursor-pointer transition-colors">Security</Link>
+                </div>
+              </div>
+              <div>
+                <h4 className="font-bold text-sm mb-6 uppercase tracking-widest text-slate-300">Company</h4>
+                <div className="space-y-4 text-sm text-zinc-500 flex flex-col">
+                  <Link href="/about" className="hover:text-white cursor-pointer transition-colors">About Us</Link>
+                  <Link href="/careers" className="hover:text-white cursor-pointer transition-colors">Careers</Link>
+                  <Link href="/newsroom" className="hover:text-white cursor-pointer transition-colors">Newsroom</Link>
+                </div>
+              </div>
+              <div>
+                <h4 className="font-bold text-sm mb-6 uppercase tracking-widest text-slate-300">Legal</h4>
+                <div className="space-y-4 text-sm text-zinc-500 flex flex-col">
+                  <Link href="/privacy" className="hover:text-white cursor-pointer transition-colors">Privacy</Link>
+                  <Link href="/terms" className="hover:text-white cursor-pointer transition-colors">Terms</Link>
+                  <Link href="/advisors" className="hover:text-white cursor-pointer transition-colors">Advisors</Link>
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col md:flex-row justify-between items-center text-xs text-zinc-600 border-t border-white/5 pt-12">
+              <p>© 2026 QuantIQ Financial Technologies Inc.</p>
+              <p className="mt-4 md:mt-0 flex items-center"><Globe className="w-3 h-3 mr-1" /> Global English (USD)</p>
+            </div>
+          </div>
+        </footer>
       </body>
     </html>
   );

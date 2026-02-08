@@ -130,16 +130,37 @@ const FireCalculator = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 p-4 md:p-8 font-sans text-slate-800">
+    <div className="min-h-screen bg-slate-50 px-6 pt-16 pb-20 md:pb-64 font-sans text-slate-800">
+
       <div className="max-w-7xl mx-auto space-y-8">
-        
+        <div className="grid grid-flow-col-dense grid-cols-5 rounded-xl overflow-hidden">
+        <div className="col-span-3 row-span-3 bg-[#115a41] p-16 text-white flex flex-col justify-center">
+          <h2 className="text-6xl font-bold playfair-display-normal"><span className="playfair-display-bold">FIRE</span> (Financial Independence Retire Early) Calculator</h2>
+          <p className="text-lg mt-2"> Your FIRE number determines the total amount needed to achieve financial independence and early retirement.</p>
+        </div>
+        <div className="col-span-2 bg-[#1f233d] p-16 text-white">
+          <h2 className='text-5xl font-bold'>₹{inputs.currentSavings.toLocaleString('en-IN')}</h2>
+          <p>Current savings</p>
+        </div>
+        <div className="col-span-2 bg-green-600 p-16">
+          <h2 className='text-5xl font-bold'>₹ {inputs.monthlySavings.toLocaleString('en-IN')}</h2>
+          <p>Monthly savings</p>
+        </div>
+        <div className="bg-red-750 p-16 text-center bg-green-100">
+          <h2 className='text-5xl font-bold'>{inputs.inflation}%</h2>
+          <p>Inflation Rate</p>
+        </div>
+        <div className="bg-red-550 p-16 text-center">
+          <h2 className='text-5xl font-bold text-green-800'>{inputs.retireAge.toLocaleString('en-IN')}</h2>
+          <p>Retire age</p>
+        </div>
+      </div>
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center bg-white p-6 rounded-xl shadow-sm border border-slate-200">
           <div>
             <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
               <TrendingUp className="text-orange-500" /> FIRE Simulation Calculator
             </h1>
-            <p className="text-slate-500 text-sm mt-1">Based on "Arbind's FIRE Calculator" Logic</p>
           </div>
           
           <div className={`mt-4 md:mt-0 px-4 py-2 rounded-lg flex items-center gap-2 font-medium ${status.brokeAge ? 'bg-red-50 text-red-700 border border-red-200' : 'bg-green-50 text-green-700 border border-green-200'}`}>
