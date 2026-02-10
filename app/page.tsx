@@ -89,7 +89,7 @@ export default function Home() {
 
 
       {/* Bottom Features Grid */}
-      <div className="arelative md:absolute md:bottom-12 left-0 w-full px-4 md:px-6 z-20 mb-12 md:mb-0">
+      <div className="relative md:bottom-12 left-0 w-full px-4 md:px-6 z-20 mb-12 md:mb-0">
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 p-6 bg-black/70 backdrop-blur-xl border border-white/10 rounded-3xl">
           {steps.map((step, index) => (
             <div key={index} className="p-4 border-b md:border-b-0 md:border-r border-white/5 last:border-0">
